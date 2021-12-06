@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import employeeService from "../services/employeeService"
+import { Link } from "react-router-dom";
+import employeeService from "../services/employeeService";
 
 const Employee = () => {
     
@@ -13,33 +14,41 @@ const Employee = () => {
                   setEmployees(response.data);
               })
               .catch(
-              () =>{
+              err =>{
                   console.log("sorry, God bless");
               }
               )
             })
             
     return(
-        <div>
+        <div className="container">
             <h3>List of Employees</h3>
                 <div>
-                   <table border = "1">
-                        <tr>
+                   <table className="table table-hover table-light table-striped">
+                   <thead>
+                        <tr className="table-success">
                             <td>Name</td>
                             <td>Department</td>
                             <td>Location</td>
+                            <td>Action</td>
                         </tr>
+                        </thead>
+                        <tbody>
                         {
                             employees.map(
                                 employee =>(
-                                    <tr>
+                                    <tr key = {employee.employeeId}>
                                         <td>{employee.name}</td>
                                         <td>{employee.department}</td>
-                                        <td>{employee.location}</td> 
+                                        <td>{employee.location}</td>
+                                        <td>
+                                            <Link className="btn btn-primary" to={`/edit/${employee.employeeId}`}>Update</Link>
+                                        </td> 
                                     </tr> 
                                 )
                             )
                         }
+                        </tbody>
                     </table>
                 </div>
         </div>
