@@ -42,7 +42,7 @@ const Employee = () => {
                                         <td>{employee.department}</td>
                                         <td>{employee.location}</td>
                                         <td>
-                                            <Link className="btn btn-primary" to={`/edit/${employee.employeeId}`}>Update</Link>
+                                            <Link className="btn btn-primary" to={`/myfirstreact/employees/edit/${employee.employeeId}`}>Update</Link>
                                         </td> 
                                     </tr> 
                                 )
