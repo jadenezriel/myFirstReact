@@ -18,5 +18,9 @@ const getEmployee = (employeeId) =>{
     return httpcommons.get(`/employees/${employeeId}`);
 }
 
+const deleteEmployee = (employeeId) =>{
+    return httpcommons.delete(`/employees/${employeeId}`);
+}
 
-export default {getEmployees, postEmployee, putEmployee, getEmployee}
+
+export default {getEmployees, postEmployee, putEmployee, getEmployee, deleteEmployee}

@@ -6,9 +6,12 @@ const Employee = () => {
     
     const [employees, setEmployees] = useState([])
     
-    useEffect(
-            () => {
-              employeeService.getEmployees()
+    useEffect(() => {
+              refreshEmployeeTable();
+            })
+            
+    const refreshEmployeeTable =()=>{
+        employeeService.getEmployees()
               .then(
               response =>{
                   setEmployees(response.data);
@@ -18,7 +21,21 @@ const Employee = () => {
                   console.log("sorry, God bless");
               }
               )
-            })
+    }
+            
+    const deleteEmployee = (employeeId) => {
+        employeeService.deleteEmployee(employeeId)
+            .then(
+              response =>{
+                  console.log("Employee is no more.");
+                  refreshEmployeeTable();
+              })
+              .catch(
+              error =>{
+                  console.error("something went wrong", error);
+              }
+              )
+    }
             
     return(
         <div className="container">
@@ -42,7 +59,10 @@ const Employee = () => {
                                         <td>{employee.department}</td>
                                         <td>{employee.location}</td>
                                         <td>
+                                            <div className="d-grid gap-2 d-md-flex">
                                             <Link className="btn btn-primary" to={`/myfirstreact/employees/edit/${employee.employeeId}`}>Update</Link>
+                                            <button className="btn btn-danger" onClick={() =>deleteEmployee(employee.employeeId)}>Delete</button>
+                                            </div>
                                         </td> 
                                     </tr> 
                                 )
