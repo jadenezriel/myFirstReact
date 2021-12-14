@@ -48,7 +48,7 @@ const AddEmployee = () => {
             )
         .catch(
             error => {
-                console.error("Error!!! Error!!!")
+                console.error("Error!!! Error!!! Employee was not updated!")
             }
                 )
         }
@@ -65,7 +65,7 @@ const AddEmployee = () => {
             )
         .catch(
             error => {
-                console.error("Error!!! Error!!!")
+                console.error("Error!!! Error!!! Employee was not added!")
             }
                 )
     }
