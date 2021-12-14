@@ -28,9 +28,6 @@ const AddEmployee = () => {
                     }
                 )
                 }
-                else{
-                    console.log("employeeId not existing")
-                }
             },[]
             )
     
