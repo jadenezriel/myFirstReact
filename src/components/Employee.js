@@ -60,8 +60,8 @@ const Employee = () => {
                                         <td>{employee.location}</td>
                                         <td>
                                             <div className="d-grid gap-2 d-md-flex">
-                                            <Link className="btn btn-primary" to={`/myfirstreact/employees/edit/${employee.employeeId}`}>Update</Link>
-                                            <button className="btn btn-danger" onClick={() =>deleteEmployee(employee.employeeId)}>Delete</button>
+                                            <Link className="btn btn-primary" to={`/myfirstreact/employees/edit/${employee.employeeId}`}>Edit</Link>
+                                            <button className="btn btn-danger" onClick={() =>deleteEmployee(employee.employeeId)}>Fire</button>
                                             </div>
                                         </td> 
                                     </tr> 
