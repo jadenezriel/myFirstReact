@@ -28,6 +28,7 @@ const AddEmployee = () => {
                     }
                 )
                 }
+
             },[]
             )
     
@@ -91,7 +92,7 @@ const AddEmployee = () => {
                 <input type="text" className="form-control" id="location" placeholder="Add employee location" onChange={(e)=>setLocation(e.target.value)}/>
             </div>
                         
-            <button type="submit" class="btn btn-primary" onClick={() => saveEmployee(e)}>Save</button>
+            <button type="submit" class="btn btn-primary" onClick={(e) => saveEmployee(e)}>Save</button>
         </form>
         
         </div>
